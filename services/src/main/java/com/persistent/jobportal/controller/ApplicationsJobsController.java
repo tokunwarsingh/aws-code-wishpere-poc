@@ -11,6 +11,7 @@ import java.util.List;
 
 //create a class for ApplicationsJobsController
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/v1/applications")
 public class ApplicationsJobsController {
 
