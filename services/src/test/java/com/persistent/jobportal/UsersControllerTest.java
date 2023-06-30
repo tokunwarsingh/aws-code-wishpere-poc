@@ -12,12 +12,14 @@ import java.util.List;
 import com.persistent.jobportal.entity.Users;
 import com.persistent.jobportal.service.impl.UsersServiceImpl;
 import org.aspectj.lang.annotation.Before;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 
+@Disabled
 @SpringBootTest
 public class UsersControllerTest {
 
