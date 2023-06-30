@@ -9,7 +9,7 @@ import java.sql.*;
 @RequestMapping("/api/v1/auth")
 public class AuthController {
     // define a login controller method
-    @PostMapping("/login")
+    @PostMapping("/signin")
     public boolean login(@RequestBody UserInfo user) {
         try {
             Connection conn =MySqlConnection();
