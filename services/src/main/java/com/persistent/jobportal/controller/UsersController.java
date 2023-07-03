@@ -54,14 +54,14 @@ public class UsersController {
     }
 
     //verify user
-    @GetMapping("/verifyLogin")
-    public ResponseEntity<String> verifyUser(@RequestBody Users users) {
+    @PostMapping("/verifyLogin")
+    public ResponseEntity<Users> verifyUser(@RequestBody Users users) {
         Users user = null;
         user = usersServiceImpl.verifyUser(users.getEmail(), users.getPassword());
         if(null == user) {
-            return new ResponseEntity<String>("Login is failed due to invalid email/password!!!", HttpStatus.NOT_FOUND);
+            return null;
         } else {
-            return new ResponseEntity<String>("Login is successful!!!", HttpStatus.OK);
+            return new ResponseEntity<Users>(users, HttpStatus.OK);
         }
     }
 
