@@ -52,4 +52,7 @@ public class SearchJobsServiceImpl implements ISearchJobsService {
     }
 
 
+    public  Jobs searchJob(Jobs jobs) {
+        return searchJobsRepository.save(jobs);
+    }
 }

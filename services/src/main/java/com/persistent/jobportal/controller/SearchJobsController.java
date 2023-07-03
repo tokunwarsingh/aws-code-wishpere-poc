@@ -2,6 +2,7 @@ package com.persistent.jobportal.controller;
 
 import com.persistent.jobportal.entity.Jobs;
 import com.persistent.jobportal.service.impl.SearchJobsServiceImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -67,6 +68,19 @@ public class SearchJobsController {
     public ResponseEntity<List<Jobs>> searchJobsByDescription(@PathVariable("jobDescription") String jobDescription) {
         List<Jobs> searchJobs = searchJobsServiceImpl.searchJobsByJobDescription(jobDescription);
         return new ResponseEntity<List<Jobs>>(searchJobs, HttpStatus.OK);
+    }
+
+    // create searchjob
+    @PostMapping("/search")
+    public ResponseEntity<Jobs> searchJob(@RequestBody Jobs jobs) {
+        Jobs searchJobs = searchJobsServiceImpl.searchJob(jobs);
+        return new ResponseEntity<Jobs>(searchJobs, HttpStatus.OK);
+    }
+
+    @GetMapping("/search1")
+    public ResponseEntity<Jobs> searchJob() {
+        //Jobs searchJobs = searchJobsServiceImpl.searchJob(jobs);
+        return new ResponseEntity<Jobs>( new Jobs(), HttpStatus.OK);
     }
 }
 

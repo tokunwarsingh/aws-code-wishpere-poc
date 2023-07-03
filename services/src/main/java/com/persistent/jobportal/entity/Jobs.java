@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 public class Jobs {
 
     @Id
-    //create jobID column
+    //create jobId column
     private Long jobId;
 
     //create jobTitle column
@@ -28,12 +28,12 @@ public class Jobs {
     //create location column
     private String location;
 
-    public Long getJobID() {
+    public Long getJobId() {
         return jobId;
     }
 
-    public void setJobID(Long jobID) {
-        this.jobId = jobID;
+    public void setJobId(Long jobID) {
+        this.jobId = jobId;
     }
 
     public String getJobTitle() {
