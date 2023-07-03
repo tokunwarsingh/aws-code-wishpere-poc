@@ -22,8 +22,8 @@ public class SearchJobsServiceImpl implements ISearchJobsService {
     }
 
     @Override
-    public Jobs searchJobsByJobId(long jobID) {
-        return searchJobsRepository.findByJobID(jobID);
+    public Jobs searchJobsByJobId(long jobId) {
+        return searchJobsRepository.findByJobId(jobId);
     }
 
     @Override

@@ -12,7 +12,7 @@ public interface ISearchJobsService {
 
 
     //Create a method searchJobs by jobID
-    public Jobs searchJobsByJobId(long jobID);
+    public Jobs searchJobsByJobId(long jobId);
 
     //Create a method searchJobs by jobTitle as list
     public List<Jobs> searchJobsByJobTitle(String jobTitle);

@@ -11,7 +11,7 @@ public class Jobs {
 
     @Id
     //create jobID column
-    private Long jobID;
+    private Long jobId;
 
     //create jobTitle column
     private String jobTitle;
@@ -29,11 +29,11 @@ public class Jobs {
     private String location;
 
     public Long getJobID() {
-        return jobID;
+        return jobId;
     }
 
     public void setJobID(Long jobID) {
-        this.jobID = jobID;
+        this.jobId = jobID;
     }
 
     public String getJobTitle() {

@@ -13,7 +13,7 @@ public interface ISearchJobsRepository extends CrudRepository<Jobs, Long> {
     public List<Jobs> findAll();
 
     //create SearchJobs based on jobID
-    public Jobs findByJobID(Long jobID);
+    public Jobs findByJobId(Long jobId);
 
     //create SearchJobs based on jobTitle
     public List<Jobs> findByJobTitle(String jobTitle);
