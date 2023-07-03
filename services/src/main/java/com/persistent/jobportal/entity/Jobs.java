@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name ="jobs")
 public class Jobs {
-
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     //create jobId column
@@ -31,7 +30,7 @@ public class Jobs {
         return jobId;
     }
 
-    public void setJobId(Long jobID) {
+    public void setJobId(Long jobId) {
         this.jobId = jobId;
     }
 
@@ -58,8 +57,6 @@ public class Jobs {
     public void setJobDescription(String jobDescription) {
         this.jobDescription = jobDescription;
     }
-
-
 
     public String getCompany() {
         return company;

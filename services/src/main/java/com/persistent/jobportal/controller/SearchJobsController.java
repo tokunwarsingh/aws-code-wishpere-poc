@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/api/v1/Jobs")
+@RequestMapping("/api/v1/jobs")
 public class SearchJobsController {
 
     @Autowired
@@ -22,41 +22,21 @@ public class SearchJobsController {
     // create method for searching all jobs
     @GetMapping("/all")
     public ResponseEntity<List<Jobs>> searchJobs() {
-        //List<Jobs> searchJobs = searchJobsServiceImpl.searchJobs();
-
-        List<Jobs> searchJobs =  new ArrayList<Jobs>();
-        Jobs job = new Jobs();
-        job.setJobId(1L);
-        job.setJobTitle("Test JOb1");
-        job.setJobDescription("This is test Jobs1");
-        job.setJobSkills(".Net");
-        job.setCompany("Persistent");
-        job.setLocation("bangalore");
-
-        Jobs job2 = new Jobs();
-        job2.setJobId(2L);
-        job2.setJobTitle("Test JOb");
-        job2.setJobDescription("This is test Jobs2");
-        job2.setJobSkills("Azure");
-        job2.setCompany("Persistent");
-        job2.setLocation("bangalore");
-        searchJobs.add(job2);
-
-          return new ResponseEntity<List<Jobs>>(searchJobs, HttpStatus.OK);
+          List<Jobs> jobs = searchJobsServiceImpl.searchJobs();
+         return new ResponseEntity<List<Jobs>>(jobs, HttpStatus.OK);
     }
 
 
     //create method for searching by jobID
-    @GetMapping("/jobID/{jobID}")
-    public ResponseEntity<Jobs> searchJobsByJobId(@PathVariable("jobID") Long jobID) {
-        Jobs searchJobs = searchJobsServiceImpl.searchJobsByJobId(jobID);
+    @GetMapping("/jobId/{jobId}")
+    public ResponseEntity<Jobs> searchJobsByJobId(@PathVariable("jobId") Long jobId) {
+        Jobs searchJobs = searchJobsServiceImpl.searchJobsByJobId(jobId);
         return new ResponseEntity<Jobs>(searchJobs, HttpStatus.OK);
     }
 
     // create method for searching jobs by location
     @GetMapping("/location/{location}")
-    public ResponseEntity<List<Jobs>> searchJobsByLocation(@PathVariable("location")
-                                                               String location) {
+    public ResponseEntity<List<Jobs>> searchJobsByLocation(@PathVariable("location")  String location) {
         List<Jobs> searchJobs = searchJobsServiceImpl.searchJobsByJobLocation(location);
         return new ResponseEntity<List<Jobs>>(searchJobs, HttpStatus.OK);
     }
@@ -91,7 +71,7 @@ public class SearchJobsController {
     }
 
     // create searchjob
-    @PostMapping("/CreateJob")
+    @PostMapping("/createjob")
     public ResponseEntity<Jobs> createJob(@RequestBody Jobs jobs) {
         Jobs searchJobs = searchJobsServiceImpl.searchJob(jobs);
         return new ResponseEntity<Jobs>(searchJobs, HttpStatus.OK);
