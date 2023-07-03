@@ -55,10 +55,18 @@ const Register = (props) => {
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
+  const [qualification, setQualification] = useState("");
+  const [skill, setSkill] = useState("");
+  const [resume, setResume]=useState("");
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
     setUsername(username);
+  };
+  
+  const onChangeResume = (e) => {
+    const resume = e.target.value;
+    setResume(resume);
   };
 
   const onChangeEmail = (e) => {
@@ -66,9 +74,19 @@ const Register = (props) => {
     setEmail(email);
   };
 
+  const onChangeQualification=(e)=>{
+      const qualification = e.target.value;
+    setQualification(qualification);
+  }
+
   const onChangePassword = (e) => {
     const password = e.target.value;
     setPassword(password);
+  };
+
+  const onChangeSkill = (e) => {
+    const skill = e.target.value;
+    setSkill(skill);
   };
 
   const handleRegister = (e) => {
@@ -101,8 +119,9 @@ const Register = (props) => {
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
+    <center>
+    <div className="col-md-12" >
+      <div /*className="card card-container"*/  style={{width:450,backgroundColor:'#f4f4f4',padding:30,borderRadius:8, boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}}>
         <img
           src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
           alt="profile-img"
@@ -113,7 +132,7 @@ const Register = (props) => {
           {!successful && (
             <div>
               <div className="form-group">
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username" style={{textAlign:"left"}}>Username</label>
                 <Input
                   type="text"
                   className="form-control"
@@ -121,11 +140,12 @@ const Register = (props) => {
                   value={username}
                   onChange={onChangeUsername}
                   validations={[required, vusername]}
+                  
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email" style={{textAlign:"left"}}>Email</label>
                 <Input
                   type="text"
                   className="form-control"
@@ -137,7 +157,7 @@ const Register = (props) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password" style={{textAlign:"left"}}>Password</label>
                 <Input
                   type="password"
                   className="form-control"
@@ -145,6 +165,43 @@ const Register = (props) => {
                   value={password}
                   onChange={onChangePassword}
                   validations={[required, vpassword]}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="qualification" style={{textAlign:"left"}}>Qualification</label>
+                <Input
+                  type="text"
+                  className="form-control"
+                  name="qualification"
+                  value={qualification}
+                  onChange={onChangeQualification}
+                  validations={[required, validEmail]}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="skills" style={{textAlign:"left"}}>Skill</label>
+                <Input
+                  type="text"
+                  className="form-control"
+                  name="skills"
+                  value={skill}
+                  onChange={onChangeSkill}
+                  validations={[required, validEmail]}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="resume" style={{textAlign:"left"}}>Resume</label>
+                <Input
+                  type="file"
+                 // className="form-control"
+                  name="resume"
+                  value={resume}
+                  onChange={onChangeResume}
+                  validations={[required, validEmail]}
+                  style={{height:'100%'}}
                 />
               </div>
 
@@ -170,6 +227,7 @@ const Register = (props) => {
         </Form>
       </div>
     </div>
+    </center>
   );
 };
 

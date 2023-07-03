@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,8 +22,27 @@ public class SearchJobsController {
     // create method for searching all jobs
     @GetMapping("/all")
     public ResponseEntity<List<Jobs>> searchJobs() {
-        List<Jobs> searchJobs = searchJobsServiceImpl.searchJobs();
-        return new ResponseEntity<List<Jobs>>(searchJobs, HttpStatus.OK);
+        //List<Jobs> searchJobs = searchJobsServiceImpl.searchJobs();
+
+        List<Jobs> searchJobs =  new ArrayList<Jobs>();
+        Jobs job = new Jobs();
+        job.setJobId(1L);
+        job.setJobTitle("Test JOb1");
+        job.setJobDescription("This is test Jobs1");
+        job.setJobSkills(".Net");
+        job.setCompany("Persistent");
+        job.setLocation("bangalore");
+
+        Jobs job2 = new Jobs();
+        job2.setJobId(2L);
+        job2.setJobTitle("Test JOb");
+        job2.setJobDescription("This is test Jobs2");
+        job2.setJobSkills("Azure");
+        job2.setCompany("Persistent");
+        job2.setLocation("bangalore");
+        searchJobs.add(job2);
+
+          return new ResponseEntity<List<Jobs>>(searchJobs, HttpStatus.OK);
     }
 
 

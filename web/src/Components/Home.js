@@ -38,17 +38,16 @@ export default function Home() {
 
   return (
     <div>
-      <div style={{ width: "100%", height: "60px", backgroundColor: "black" }}>
-       
-      </div>
+      
       <br />
-      <center>
+      
         <form action="">
 
-        <div style={{flexDirection:'row',display:'flex', marginLeft:440}}>
+        <div style={{flexDirection:'row',display:'flex', marginLeft:230}}>
+          
           <div>
               <input
-            type="email"
+            type="text"
             className="form-control"
             placeholder="Search Job"
             style={{
@@ -57,7 +56,7 @@ export default function Home() {
               borderBottomColor: "black",
               borderBottomWidth: "1",
               borderColor: "#e4e4e4",
-              borderWidth: 0,
+              borderWidth: 1,
               fontSize: 20,
             
 
@@ -79,6 +78,7 @@ export default function Home() {
             marginTop: 70,
             paddingTop: 50,
             paddingBottom: 100,
+           
           }}>
 
           {/**post block,  mapping - AWS tool*/}
@@ -109,6 +109,7 @@ export default function Home() {
               className="Job-desc"
               style={{ width: 1030, height: 250, paddingLeft: 10 }}>
               
+               {/**job title */}
               <div style={{display:'flex',flexDirection:'row'}}>
                 <div style={{width:750}}><h2 style={{ textAlign: "left" }}>
                 {item.jobHead}
@@ -121,10 +122,11 @@ export default function Home() {
               
               <hr />
 
-
+              {/** descriptiom */}
               <p style={{ textAlign: "left" }}>
                 Description: {item.requrement}
               </p>
+              {/**Location */}
               <p style={{ textAlign: "left" }}>
                 Location: {item.Location}
               </p>
@@ -134,7 +136,7 @@ export default function Home() {
           </div>)})
         }
         </div>
-      </center>
+      
     </div>
   );
 }
