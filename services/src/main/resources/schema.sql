@@ -15,7 +15,8 @@ CREATE TABLE Jobs (
   job_skills VARCHAR(100),
   job_description TEXT,
   company VARCHAR(100),
-  location VARCHAR(100)
+  location VARCHAR(100),
+  img varchar(5000)
 );
 -- Create Applications table
 CREATE TABLE Applications (

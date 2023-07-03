@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import AuthService from "./services/auth.service";
+//import JobService from "../services/job.service";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -47,7 +48,7 @@ const App = () => {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to={"/"} className="navbar-brand">
-          Jon Portal
+          Job Portal
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">

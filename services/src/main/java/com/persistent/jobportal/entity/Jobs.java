@@ -26,6 +26,16 @@ public class Jobs {
     //create location column
     private String location;
 
+    private String img;
+
+    public String getImg() {
+        return img;
+    }
+    public void setImg(String img) {
+            this.img = img;
+    }
+
+
     public Long getJobId() {
         return jobId;
     }

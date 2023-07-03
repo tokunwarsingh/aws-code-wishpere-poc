@@ -1,40 +1,30 @@
 import React from "react";
+import axios from "axios";
 
-export default function Home() {
-   const jobData= [
-	{
-		img:'https://mma.prnewswire.com/media/1022385/Persistent_Systems_Logo.jpg',
-		jobHead : 'Project Lead (Persistent system)',
-		requrement:'Require project lead with skellset of Java, Springboot',
-		Location: 'Pune|Ahemdabad|Mumbai',
-		salary:'90K - 100K',
-		jobType:'Full Time'
-	},
-	{
-		img:'https://boomi.com/wp-content/uploads/wipro-logo.jpg',
-		jobHead : 'Senior Developer (Wipro)',
-		requrement:'Require project lead with skellset of C#, .Net Core',
-		Location: 'Pune|Indore|Mumbai',
-	  salary:'70K - 80K',
-		jobType:'Full Time'
-	},
-	{
-		img:'https://tse2.mm.bing.net/th/id/OIP.Jm0Lorqlgol1reX8idvG8AHaE8?pid=ImgDet&rs=1',
-		jobHead : 'QA Automation (Infosys)',
-		requrement:'Require project lead with skellset of core Java, Seleniam',
-		Location: 'Indore|Mumbai|Delhi',
-		salary:'60K - 70K',
-		jobType:'Full Time'
-	},
-  {
-		img:'https://tse2.mm.bing.net/th/id/OIP.Jm0Lorqlgol1reX8idvG8AHaE8?pid=ImgDet&rs=1',
-		jobHead : 'Software Engineer (Infosys)',
-		requrement:'Require project lead with skellset of Python, Django',
-		Location: 'Indore|Delhi',
-		salary:'110K - 110K',
-		jobType:'Full Time'
-	}	
-]
+
+//import JobService from "../services/job.service";
+
+export default function Home() {  
+/*
+const [jobData, setAllJobs] = React.useState([]); 
+//setAllJobs(JobService.allJobs());
+setAllJobs(JobService.allJobs);
+
+// call allJobs funtion fron JobService
+
+*/
+
+const baseURL = "http://localhost:8089/api/v1/jobs/all";
+
+//export default function App() {
+  const [jobData, setAllJobs] = React.useState([]); 
+
+  React.useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      setAllJobs(response.data);
+    });
+  }, []);
+
 
   return (
     <div>
@@ -112,7 +102,7 @@ export default function Home() {
                {/**job title */}
               <div style={{display:'flex',flexDirection:'row'}}>
                 <div style={{width:750}}><h2 style={{ textAlign: "left" }}>
-                {item.jobHead}
+                {item.jobTitle}
               </h2></div>
                 <div>
                     <button style={{borderRadius:7,width:100,height:40,marginTop:20,backgroundColor:'black',color:'white',fontSize:20, borderColor:'white'}}>Apply</button>
@@ -124,14 +114,14 @@ export default function Home() {
 
               {/** descriptiom */}
               <p style={{ textAlign: "left" }}>
-                Description: {item.requrement}
+                Description: {item.jobDescription}
               </p>
               {/**Location */}
               <p style={{ textAlign: "left" }}>
                 Location: {item.Location}
               </p>
-              <p style={{ textAlign: "left" }}>Salary: {item.salary}</p>
-              <p style={{ textAlign: "left" }}>Job Type: {item.jobType}</p>
+              <p style={{ textAlign: "left" }}>Salary: {item.company}</p>
+              <p style={{ textAlign: "left" }}>Job Type: {item.jobTitle}</p>
             </div>
           </div>)})
         }
