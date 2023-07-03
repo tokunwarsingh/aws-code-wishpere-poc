@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/api/v1/searchJobs")
+@RequestMapping("/api/v1/Jobs")
 public class SearchJobsController {
 
     @Autowired
@@ -71,8 +71,8 @@ public class SearchJobsController {
     }
 
     // create searchjob
-    @PostMapping("/search")
-    public ResponseEntity<Jobs> searchJob(@RequestBody Jobs jobs) {
+    @PostMapping("/CreateJob")
+    public ResponseEntity<Jobs> createJob(@RequestBody Jobs jobs) {
         Jobs searchJobs = searchJobsServiceImpl.searchJob(jobs);
         return new ResponseEntity<Jobs>(searchJobs, HttpStatus.OK);
     }

@@ -1,8 +1,6 @@
 package com.persistent.jobportal.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 
 @Entity
@@ -12,6 +10,7 @@ public class Users {
 
     //id
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long userId;
     //name
     private String userName;
