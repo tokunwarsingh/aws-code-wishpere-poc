@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Alert } from "bootstrap";
 
 
 //import JobService from "../services/job.service";
@@ -80,7 +81,7 @@ const baseURL = "http://localhost:8089/api/v1/jobs/all";
               flexDirection: "row",
               display: "flex",
               width: 1150,
-              height: 260,
+              height: 350,
               backgroundColor: "white",
               marginBottom: 20,
               boxShadow:
@@ -105,7 +106,7 @@ const baseURL = "http://localhost:8089/api/v1/jobs/all";
                 {item.jobTitle}
               </h2></div>
                 <div>
-                    <button style={{borderRadius:7,width:100,height:40,marginTop:20,backgroundColor:'black',color:'white',fontSize:20, borderColor:'white'}}>Apply</button>
+                    <button style={{borderRadius:7,width:100,height:40,marginTop:20,backgroundColor:'black',color:'white',fontSize:20, borderColor:'white'}} onClick={()=>{alert("Job is successfully applied!")}}>Apply</button>
                 </div>
               </div>
 
@@ -118,9 +119,9 @@ const baseURL = "http://localhost:8089/api/v1/jobs/all";
               </p>
               {/**Location */}
               <p style={{ textAlign: "left" }}>
-                Location: {item.Location}
+                Location: {item.location}
               </p>
-              <p style={{ textAlign: "left" }}>Salary: {item.company}</p>
+              <p style={{ textAlign: "left" }}>Company: {item.company}</p>
               <p style={{ textAlign: "left" }}>Job Type: {item.jobTitle}</p>
             </div>
           </div>)})

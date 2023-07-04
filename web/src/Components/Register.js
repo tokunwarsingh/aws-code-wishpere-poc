@@ -1,11 +1,12 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
 import AuthService from "../services/auth.service";
-
 const required = (value) => {
   if (!value) {
     return (
@@ -117,6 +118,7 @@ const Register = (props) => {
       );
     }
   };
+  const navigate = useNavigate();
 
   return (
     <center>
@@ -206,7 +208,7 @@ const Register = (props) => {
               </div>
 
               <div className="form-group">
-                <button className="btn btn-primary btn-block">Sign Up</button>
+                <button className="btn btn-primary btn-block" onClick={()=>{navigate('/login')}}>Sign Up</button>
               </div>
             </div>
           )}
