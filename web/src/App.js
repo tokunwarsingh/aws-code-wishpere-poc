@@ -11,7 +11,7 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 
 
-// import AuthVerify from "./common/AuthVerify";
+//import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
 
 const App = () => {
@@ -41,7 +41,7 @@ const App = () => {
     AuthService.logout();
    // setShowModeratorBoard(false);
     //setShowAdminBoard(false);
-    //setCurrentUser(undefined);
+    setCurrentUser(undefined);
   };
 
   return (

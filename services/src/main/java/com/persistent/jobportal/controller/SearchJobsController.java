@@ -76,11 +76,5 @@ public class SearchJobsController {
         Jobs searchJobs = searchJobsServiceImpl.searchJob(jobs);
         return new ResponseEntity<Jobs>(searchJobs, HttpStatus.OK);
     }
-
-    @GetMapping("/search1")
-    public ResponseEntity<Jobs> searchJob() {
-        //Jobs searchJobs = searchJobsServiceImpl.searchJob(jobs);
-        return new ResponseEntity<Jobs>( new Jobs(), HttpStatus.OK);
-    }
 }
 

@@ -176,7 +176,7 @@ const Register = (props) => {
                   name="qualification"
                   value={qualification}
                   onChange={onChangeQualification}
-                  validations={[required, validEmail]}
+                  validations={[required]}
                 />
               </div>
 
@@ -188,7 +188,7 @@ const Register = (props) => {
                   name="skills"
                   value={skill}
                   onChange={onChangeSkill}
-                  validations={[required, validEmail]}
+                  validations={[required]}
                 />
               </div>
 
@@ -200,7 +200,7 @@ const Register = (props) => {
                   name="resume"
                   value={resume}
                   onChange={onChangeResume}
-                  validations={[required, validEmail]}
+                  validations={[required]}
                   style={{height:'100%'}}
                 />
               </div>
