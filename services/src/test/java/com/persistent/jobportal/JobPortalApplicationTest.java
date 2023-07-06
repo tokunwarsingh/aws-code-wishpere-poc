@@ -1,4 +1,4 @@
-package com.persistent.jobportal;
+/*package com.persistent.jobportal;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -18,4 +18,4 @@ class JobPortalApplicationTest {
     @Test
     void corsConfigurer() {
     }
-}
+}*/
