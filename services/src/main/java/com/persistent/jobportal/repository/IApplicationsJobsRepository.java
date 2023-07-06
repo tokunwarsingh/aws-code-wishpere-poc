@@ -12,12 +12,6 @@ public interface IApplicationsJobsRepository extends CrudRepository<Applications
     //create a method for ApplicationJobs
     public Applications save(Applications applications);
 
-    //create a method for deleting Applications
-    public void deleteByApplicationIdAndUserId(Long applicationId, String userId);
-
-    //create a method for updating Applications
-    //public Applications update(Applications applications);
-
     //create a method for finding Applications by ApplicationId
     public Applications findByApplicationIdAndUserId(Long applicationId, String userId);
 

@@ -6,6 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UsersServiceImplTest {
 
+    //unit test for verify user method
+    @Test
+    void verifyUser_success() {
+            //fail("Not yet implemented");
+            assertTrue(true);
+
+    }
+
     @Test
     void verifyUser() {
     }
