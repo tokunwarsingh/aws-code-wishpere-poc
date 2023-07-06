@@ -23,21 +23,6 @@ public class UsersController {
         return new ResponseEntity<Users>(user, HttpStatus.CREATED);
     }
 
-    //modify user
-    @PutMapping("/modify/{email}")
-    public ResponseEntity<Users> modifyUser(@PathVariable("email") String email, @RequestBody Users users) {
-        Users user = usersServiceImpl.modifyUser(email, users);
-        return new ResponseEntity<Users>(user, HttpStatus.OK);
-    }
-
-    //delete user
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable("id") Long id) {
-        usersServiceImpl.deleteUser(id);
-        return new ResponseEntity<String>("User deleted successfully", HttpStatus.OK);
-    }
-
-
     //get all users
     @GetMapping("/all")
     public ResponseEntity<List<Users>> getAllUsers() {
@@ -56,7 +41,4 @@ public class UsersController {
             return new ResponseEntity<Users>(users, HttpStatus.OK);
         }
     }
-
-
-
 }
