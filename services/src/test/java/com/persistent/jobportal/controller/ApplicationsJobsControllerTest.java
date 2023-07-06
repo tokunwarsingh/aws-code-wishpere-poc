@@ -1,4 +1,5 @@
 package com.persistent.jobportal.controller;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.persistent.jobportal.controller.ApplicationsJobsController;
 import com.persistent.jobportal.entity.Applications;
 import com.persistent.jobportal.service.impl.*;
@@ -21,6 +22,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.willReturn;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
@@ -59,7 +61,8 @@ class ApplicationsJobsControllerTest {
         mockMvc.perform(get("/api/v1/applications/all")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)));    }
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
 
     @Test
     void getApplicationsByApplicationId_and_User_Id() throws Exception {
@@ -75,15 +78,21 @@ class ApplicationsJobsControllerTest {
                 .andExpect(jsonPath("$.applicationId").value(1L));
     }
 
-    @Test
-    void updateApplicationsByApplicationId_and_User_Id() {
-    }
+    // write unit test for saveApplications()
+        @Test
+    void saveApplications_test() throws Exception {
+        Applications applications = new Applications();
+        applications.setApplicationId(1L);
+        applications.setUserId("1");
+        applications.setJobId(1L);
 
-    @Test
-    void saveApplications() {
-    }
+        given(applicationsJobsService.addApplications(applications)).willReturn(applications);
+            ObjectMapper objectMapper = new ObjectMapper();
 
-    @Test
-    void deleteApplicationsByApplicationId_and_User_Id() {
-    }
+        mockMvc.perform(post("/api/v1/applications/save")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(applications))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isCreated());
+        }
 }

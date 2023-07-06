@@ -32,26 +32,11 @@ public class ApplicationsJobsController {
         return new ResponseEntity<Applications>(applications, HttpStatus.OK);
     }
 
-    //create  a method for updating applications by applicationsId, userId
-    @PutMapping("/update/{applicationId}/{userId}")
-    public ResponseEntity<Applications> updateApplicationsByApplicationId_and_User_Id(@PathVariable("applicationId") Long applicationId, @PathVariable("userId") String userId, @RequestBody Applications applications) {
-        Applications updatedApplications = applicationsJobsServiceImpl.updateApplications(applications, applicationId, userId);
-        return new ResponseEntity<Applications>(updatedApplications, HttpStatus.OK);
-    }
-
     //create a method for saving applications
     @PostMapping("/save")
     public ResponseEntity<Applications> saveApplications(@RequestBody Applications applications) {
         Applications savedApplications = applicationsJobsServiceImpl.addApplications(applications);
         return new ResponseEntity<Applications>(savedApplications, HttpStatus.CREATED);
     }
-
-
-    @DeleteMapping("/delete/{applicationId}/{userId}")
-    public ResponseEntity<String> deleteApplicationsByApplicationId_and_User_Id(@PathVariable("applicationId") Long applicationId, @PathVariable("userId") String userId) {
-        applicationsJobsServiceImpl.deleteApplications(applicationId, userId);
-        return new ResponseEntity<String>("Deleted Successfully", HttpStatus.OK);
-    }
-
 
 }

@@ -16,14 +16,6 @@ public class UsersController {
     @Autowired
     private UsersServiceImpl usersServiceImpl;
 
-    // get user based on email and return user info
-    @GetMapping("/{email}")
-    public ResponseEntity<Users> getUser(@PathVariable("email") String email) {
-        Users user = usersServiceImpl.fetchUser(email);
-        return new ResponseEntity<Users>(user, HttpStatus.OK);
-        // return "User Info";
-    }
-
     //register user
     @PostMapping("/register")
     public ResponseEntity<Users> registerUser(@RequestBody Users userInfo) {
