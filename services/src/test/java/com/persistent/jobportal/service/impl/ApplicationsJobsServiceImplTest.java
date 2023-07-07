@@ -62,7 +62,7 @@ class ApplicationsJobsServiceImplTest {
         //viewAllApplications unit tests
     @Test
         void viewAllApplicationsJob() {
-            Applications applications = new Applications();
+        Applications applications = new Applications();
         applications.setApplicationId(1L);
         applications.setJobId(1L);
         applications.setUserId("1");
