@@ -62,22 +62,6 @@ public class Users {
         this.qualification = qualification;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-
-        if (!(obj instanceof Users))
-            return false;
-
-        Users user = (Users) obj;
-        boolean isEquals = true;
-        isEquals = user.getEmail().equals(this.email)
-                && user.getPassword().equals(this.password)
-                && user.getQualification().equals(this.qualification)
-                && user.getUserName().equals(this.userName)
-                && user.getUserId() == this.userId;
-
-        return isEquals;
-    }
 
     @Override
     public String toString() {
