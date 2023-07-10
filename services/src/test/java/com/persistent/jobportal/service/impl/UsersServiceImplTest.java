@@ -6,15 +6,18 @@ import com.persistent.jobportal.repository.ISearchJobsRepository;
 import com.persistent.jobportal.repository.IUsersRepository;
 import com.persistent.jobportal.service.IUsersService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-
+import static org.mockito.BDDMockito.given;
+@ExtendWith(MockitoExtension.class)
 class UsersServiceImplTest {
 
     //unit test for verify user method
@@ -24,7 +27,7 @@ class UsersServiceImplTest {
     @Mock
     IUsersRepository iUserInfoRepository;
 
-    private IUsersService iUsersService;
+
     @Test
     void verifyUser_success() throws Exception {
 
@@ -37,10 +40,11 @@ class UsersServiceImplTest {
         mockUser.setEmail("xyz@gmail.com");
         mockUser.setPassword("123");
 
-        usersServiceImpl  = Mockito.mock(UsersServiceImpl.class);
+        //iUserInfoRepository  = Mockito.mock(UsersServiceImpl.class);
 
-        Mockito.when(usersServiceImpl.verifyUser(mockUser.getEmail(), mockUser.getPassword()))
-                .thenReturn(mockUser);
+        // given - precondition or setup
+        given(iUserInfoRepository.findByEmailAndPassword(
+                mockUser.getEmail(), mockUser.getPassword())).willReturn(mockUser);
 
         Users realUser = usersServiceImpl.verifyUser("xyz@gmail.com", "123");
 
@@ -49,10 +53,6 @@ class UsersServiceImplTest {
         assertThat(mockUser.getPassword()).isEqualTo(realUser.getPassword());
     }
 
-    @Test
-    void fetchUser() {
-
-    }
 
     @Test
     void registerUser() {
@@ -63,23 +63,14 @@ class UsersServiceImplTest {
         mockUser.setEmail("xyz@gmail.com");
         mockUser.setPassword("123");
 
-        usersServiceImpl  = Mockito.mock(UsersServiceImpl.class);
 
-        Mockito.when(usersServiceImpl.registerUser(mockUser))
-                .thenReturn(mockUser);
+        // given - precondition or setup
+        given(iUserInfoRepository.save(mockUser)).willReturn(mockUser);
 
         Users realUser = usersServiceImpl.registerUser(mockUser);
 
         assertThat(realUser).isNotNull();
         assertTrue(mockUser.equals(realUser));
-    }
-
-    @Test
-    void modifyUser() {
-    }
-
-    @Test
-    void deleteUser() {
     }
 
     @Test
@@ -99,10 +90,8 @@ class UsersServiceImplTest {
         mockUser2.setPassword("123");
 
         List<Users> usersList = List.of(mockUser1, mockUser2);
-        usersServiceImpl  = Mockito.mock(UsersServiceImpl.class);
-
-        Mockito.when(usersServiceImpl.getAllUsers())
-                .thenReturn(usersList);
+        // given - precondition or setup
+        given(iUserInfoRepository.findAll()).willReturn(usersList);
 
         List<Users> realUsersList = usersServiceImpl.getAllUsers();
 
