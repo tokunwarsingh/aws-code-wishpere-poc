@@ -1,21 +1,16 @@
 package com.persistent.jobportal.service.impl;
 
-import com.persistent.jobportal.entity.Applications;
 import com.persistent.jobportal.entity.Users;
-import com.persistent.jobportal.repository.ISearchJobsRepository;
 import com.persistent.jobportal.repository.IUsersRepository;
-import com.persistent.jobportal.service.IUsersService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 @ExtendWith(MockitoExtension.class)
 class UsersServiceImplTest {
